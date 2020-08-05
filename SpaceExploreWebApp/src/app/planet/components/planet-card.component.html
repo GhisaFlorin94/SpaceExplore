@@ -1,0 +1,20 @@
+<div class="card-header border-0" (click)="onClick()">
+    <img  class="img-responsive planet-image" src="..\..\..\assets\images\{{planet.name}}.png">
+    <div class="card-title planet-name">{{planet.name}}</div>
+</div>
+<div class="card-block px-2 planet-info-box" (click)="onClick()">
+    <div *ngIf="planet.crewId < 1" class="card-text planet-info pr-4">{{ 'No description yet. Feel free to explore'}}</div>
+    <div *ngIf="planet.crewId > 0" class="card-text planet-info pr-4">
+        <div class="planet-description">{{ planet.description}}</div>
+        <div><span class="captain-text">by captain</span> <span class="captain-text-name">{{exploringCrew.captain.captainName}}</span></div>
+        <div><span class="robot-text">Robtos:</span> <span class="robots-list" >{{explorinRobots}} </span></div>
+    </div>
+
+    <div class="planet-status"        
+     [ngClass]="{
+        'black': planet.planetStatus == 1,
+        'gray': planet.planetStatus == 2,
+        'green': planet.planetStatus == 3,
+        'red': planet.planetStatus == 4
+     }">{{getStatus(planet.planetStatus)}}</div>
+</div>

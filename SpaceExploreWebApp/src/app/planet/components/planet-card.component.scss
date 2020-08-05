@@ -1,0 +1,66 @@
+$red : #ff1d1d;
+$green : #0cd34f;
+$gray : #838080;
+$black : #000000;
+
+.planet-image{
+    width: 70px;
+    height: 70px;
+}
+.planet-name{
+    text-align: center;
+}
+
+.planet-info-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex: 1;
+    padding: 12px;
+}
+
+.planet-info{
+    line-height: initial;
+    flex: 1;
+    flex-direction: column;
+    display:flex;
+    height: 100%;
+}
+
+.planet-description{
+    flex: 1;
+    word-break: break-all;
+}
+
+.red{
+color: $red
+}
+.green{
+color: $green
+}
+.gray{
+color: $gray
+}
+.black{
+color: $black
+}
+
+.planet-status{
+font-weight: bolder;
+}
+
+.captain-text{
+font-size: 10px;
+font-weight: bold;
+}
+.captain-text-name{
+font-size: 10px;
+text-decoration: underline;
+}
+.robot-text{
+    font-size: 12px;
+    font-weight: bold;
+}
+.robots-list{
+    font-size: 12px;
+}

@@ -1,0 +1,39 @@
+<div class="modal-header">
+    <h4 class="modal-title">Update Planet: {{planet.name}}  </h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form action = "" #planetform="ngForm">
+        <label>Description</label>
+        <input type="text"
+                ngModel name="description"
+                [(ngModel)]="updatingPlanet.description"
+                required
+                minlength="5"
+                [ngClass]="{'form-control': true, 'is-invalid': !planetform.form.controls.description?.valid && planetform.form.controls.description?.touched}">
+
+        <label>Crew</label>
+        <select 
+         ngModel name="crew" 
+         [(ngModel)]="updatingPlanet.crewId" 
+         required
+         [ngClass]="{'form-control': true, 'is-invalid': !planetform.form.controls.crew?.valid}">
+          <option [ngValue]="null">Please select a crew</option>
+          <option *ngFor="let crewOption of crewList"
+                  [ngValue]="crewOption.crewId">
+                  {{crewOption.captain.captainName}}'s crew ({{crewOption.shuttle.shuttleName}} shuttle)
+          </option>
+        </select>
+
+        <label>Planet Status</label>
+        <select class="form-control" ngModel name="status"    [(ngModel)]="updatingPlanet.planetStatus">
+          <option [ngValue]="null">Select The planet status</option>
+          <option *ngFor="let planetStatus of planetStatuses | enumToArray" [ngValue]="planetStatus.index">{{planetStatus.name}}</option>
+        </select>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" [disabled]="!planetform.form.valid" (click)="submitHandler(planetform)">Update</button>
+  </div>

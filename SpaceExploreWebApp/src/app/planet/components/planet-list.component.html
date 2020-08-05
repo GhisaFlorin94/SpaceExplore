@@ -1,0 +1,19 @@
+
+<div class="card planet-card-list flex-row" *ngFor="let planet of planetList">
+    <!-- <div class="card-header border-0">
+        <img  class="img-responsive planet-image" src="..\..\..\assets\images\{{planet.name}}.png">
+        <div class="card-title planet-name">{{planet.name}}</div>
+    </div>
+    <div class="card-block px-2 planet-description-box">
+        <div class="card-text planet-description-text pr-4">{{planet.description ? planet.description.descriptionText:'No description yet. Feel free to explore'}}</div>
+        <div class="planet-status"        
+         [ngClass]="{
+            'black': planet.planetStatus == 1,
+            'gray': planet.planetStatus == 2,
+            'green': planet.planetStatus == 3,
+            'red': planet.planetStatus == 4
+         }">{{getStatus(planet.planetStatus)}}</div>
+    </div> -->
+  
+<planet-card  *ngIf="crewList.length >0  && planet" [planet] = "planet" [crewList] ="crewList" class="d-flex planet-card"></planet-card>
+ </div>
